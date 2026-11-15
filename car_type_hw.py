@@ -29,13 +29,7 @@ class Automobile(Vehicle):
             print("Invalid input. Please enter a valid year.")
             return
         make = input("Enter vehicle make: ")
-        if make != str(make):
-            print("Invalid input. Please enter a valid make.")
-            return
         model = input("Enter vehicle model: ")
-        if model != str(model):
-            print("Invalid input. Please enter a valid model.")
-            return
         doors = int(input("Enter number of doors (2 or 4): "))
         if doors not in [2, 4]:
             print("Invalid number of doors. Please enter 2 or 4.")
