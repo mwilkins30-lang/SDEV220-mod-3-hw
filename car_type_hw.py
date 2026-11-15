@@ -3,7 +3,7 @@ class Vehicle:
         self.vehicle_type = vehicle_type
 
 class Automobile(Vehicle):
-    def ___init___(self, year, make, model, doors, roof):
+    def __init__(self, year, make, model, doors, roof):
         super().__init__("car")
         self.year = year
         self.make = make
@@ -22,11 +22,28 @@ class Automobile(Vehicle):
         print(f"Roof: {self.roof}")
 
     def main():
-        year = input("Enter vehicle year: ")
+        year = int(input("Enter vehicle year: "))
+        try:
+            year = int(input("Enter vehicle year: "))
+        except ValueError:
+            print("Invalid input. Please enter a valid year.")
+            return
         make = input("Enter vehicle make: ")
+        if make != str(make):
+            print("Invalid input. Please enter a valid make.")
+            return
         model = input("Enter vehicle model: ")
+        if model != str(model):
+            print("Invalid input. Please enter a valid model.")
+            return
         doors = int(input("Enter number of doors (2 or 4): "))
+        if doors not in [2, 4]:
+            print("Invalid number of doors. Please enter 2 or 4.")
+            return
         roof = input("Enter roof type (solid or sunroof): ")
+        if roof.lower() not in ["solid", "sunroof"]:
+                print("Invalid roof type. Please enter 'solid' or 'sunroof'.")
+                return
 
         my_car = Automobile(year, make, model, doors, roof)
         my_car.display_info()
